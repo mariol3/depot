@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  description: MyText
+  image_url: MyString
+  price: 9.99
+
+two:
+  title: MyString
+  description: MyText
+  image_url: MyString
+  price: 9.99
+
+lotr:
+  title: 'Il signore degli anelli'
+  description: 'Il mio tessssoro...'
+  image_url: 'lord.png'
+  price: 29.99
