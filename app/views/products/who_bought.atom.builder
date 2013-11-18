@@ -1,0 +1,43 @@
+atom_feed do |feed|
+  feed.title "Chi ha acquistato #{@product.title}"
+  latest_order = @product.orders.sort_by(&:updated_at).last
+  
+  feed.updated(latest_order && latest_order.updated_at)
+  @product.orders.each do |order|
+    feed.entry(order) do |entry|
+      entry.title "Ordine #{order.id}"
+      
+      entry.summary type: 'xhtml' do |xhtml|
+        xhtml.p "Consegnato in #{order.address}"
+        
+        xhtml.table do
+          xhtml.tr do
+            xhtml.th 'Prodotto'
+            xhtml.th 'Quantita'
+            xhtml.th 'Prezzo totale'
+          end
+          
+          order.line_items.each do |item|
+            xhtml.tr do
+              xhtml.td item.product.title
+              xhtml.td item.quantity
+              xhtml.td number_to_currency item.total_price
+            end
+          end
+          
+          xhtml.tr do
+            xhtml.th 'Totale', colspan: 2
+            xhtml.th number_to_currency order.line_items.map(&:total_price).sum
+          end
+        end
+        
+        xhtml.p "Pagato con #{order.pay_type}"
+      end
+      
+      entry.author do |author|
+        author.name order.name
+        author.email order.email
+      end
+    end
+  end
+end
