@@ -1,0 +1,10 @@
+Caro <%= @order.name %>
+
+Grazie per il tuo acquisto.
+
+Il tuo ordine contiene:
+
+<%= render @order.line_items %>
+
+Ti spediremo un'altra mail quando l'ordine verra spedito.
+Nel frattempo, grazie! :)
