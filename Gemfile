@@ -39,3 +39,5 @@ gem 'jquery-rails', "~> 2.3.0"
 
 # Better test output
 gem 'turn'
+
+gem 'will_paginate', '~> 3.0'
