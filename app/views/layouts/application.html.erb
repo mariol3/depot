@@ -10,7 +10,7 @@
 
   <div id="banner">
     <%= image_tag('logo.png', id: 'logo') %>
-    <%= @page_title || 'Cataologo Libri' %>
+    <%= @page_title || t('.title') %>
   </div>
   <div id="columns">
     <div id="side">
@@ -21,16 +21,16 @@
       <% end %>
       <ul>
         <li>
-          <%= link_to 'Home', store_path %>
+          <%= link_to t('.home'), store_path %>
         </li>
         <li>
-          <a href="http://www..../faq">Questions</a>
+          <a href="http://www..../faq"><%= t('.questions') %></a>
         </li>
         <li>
-          <a href="http://www.../news">News</a>
+          <a href="http://www.../news"><%= t('.news') %></a>
         </li>
         <li>
-          <a href="http://www.../contacts">Contacts</a>
+          <a href="http://www.../contacts"><%= t('.contact') %></a>
         </li>
       </ul>
 
