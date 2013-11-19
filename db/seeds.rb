@@ -36,3 +36,9 @@ Product.create(title: 'Il signore degli anelli',
   image_url: 'http://www.paolomarzola.com/blog/wp-content/uploads/2009/01/il_signore_degli_anelli.jpg',
   price: 20.00
 )
+
+User.delete_all
+
+User.create(name: 'admin',
+            password: 'admin',
+            password_confirmation: 'admin')
